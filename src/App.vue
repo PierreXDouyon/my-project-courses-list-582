@@ -3,30 +3,60 @@
     <h1>Course List App</h1>
     <p>{{ count }}</p>
     <CourseItem1
-      v-for="student in students"
-      :key="student.id"
-      :given="student"
+      :courses="courses"
+      @remove-course="removeCourse"
+      @count-to-parent="addOne"
     />
   </div>
 </template>
 
 <script>
-import CourseItem1 from "./components/CourseItem1.vue";
+import CourseItem1 from "./components/CourseItem1.vue"; // Correct the import statement
 
 export default {
   name: "App",
   data() {
     return {
-      students: [
-        { id: 1, name: "patrick", credits: 22 },
-        { id: 2, name: "john", age: 45 },
-        { id: 3, name: "mary", age: 77 },
+      courses: [
+        {
+          id: 1,
+          name: "Math",
+          credits: 3,
+          hours: 45,
+          description: "Mathematics course",
+          teacher: "John Smith",
+        },
+        {
+          id: 2,
+          name: "Science",
+          credits: 4,
+          hours: 60,
+          description: "Science course",
+          teacher: "Jane Doe",
+        },
+        {
+          id: 3,
+          name: "History",
+          credits: 3,
+          hours: 40,
+          description: "History course",
+          teacher: "Michael Johnson",
+        },
+        // Add more courses here...
       ],
       count: 0,
     };
   },
   components: {
     CourseItem1,
+  },
+  methods: {
+    addOne() {
+      this.count++;
+    },
+    removeCourse(courseId) {
+      this.courses = this.courses.filter((course) => course.id !== courseId);
+    },
   },
 };
 </script>

@@ -1,10 +1,15 @@
 <template>
   <div>
-    <div>Course Name: {{ given.name }}</div>
-    <p>Course ID: {{ given.id }}</p>
-    <p>Credits: {{ given.credits }}</p>
-    <button @click="innerRemove">remove</button>
-    <button @click="outerAdd">Add to Parent</button>
+    <div v-for="course in courses" :key="course.id">
+      <div>Course Name: {{ course.name }}</div>
+      <p>Course ID: {{ course.id }}</p>
+      <p>Credits: {{ course.credits }}</p>
+      <p>Hours: {{ course.hours }}</p>
+      <p>Description: {{ course.description }}</p>
+      <p>Teacher: {{ course.teacher }}</p>
+      <button @click="innerRemove(course.id)">remove</button>
+      <button @click="outerAdd">Add to Parent</button>
+    </div>
   </div>
 </template>
 
@@ -12,16 +17,14 @@
 export default {
   name: "CourseItem1",
   props: {
-    given: {
-      type: Object,
+    courses: {
+      type: Array,
       required: true,
     },
   },
   methods: {
-    innerRemove() {
-      // Logic to handle removing a course, if needed.
-      // For now, this method is commented out to avoid confusion with the original code.
-      // this.$emit("remove-course");
+    innerRemove(courseId) {
+      this.$emit("remove-course", courseId);
     },
     outerAdd() {
       this.$emit("count-to-parent");
