@@ -24,7 +24,7 @@ export default {
           credits: 3,
           hours: 45,
           description: "Mathematics course",
-          teacher: "John Smith",
+          teacher: "Cheryl Swoops",
           added: false,
         },
         {
@@ -33,7 +33,7 @@ export default {
           credits: 4,
           hours: 60,
           description: "Science course",
-          teacher: "Jane Doe",
+          teacher: "Michael Jordan",
           added: false,
         },
         {
@@ -42,10 +42,10 @@ export default {
           credits: 3,
           hours: 40,
           description: "History course",
-          teacher: "Michael Johnson",
+          teacher: "Magic Johnson",
           added: false,
         },
-        // Add more courses here...
+        // more courses
       ],
       count: 0,
     };
@@ -72,6 +72,6 @@ export default {
 };
 </script>
 
-<style lang="scss">
-/* Styles if any */
+<style scoped lang="scss">
+/* Styles  */
 </style>
