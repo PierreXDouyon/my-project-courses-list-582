@@ -7,8 +7,10 @@
       <p>Hours: {{ course.hours }}</p>
       <p>Description: {{ course.description }}</p>
       <p>Teacher: {{ course.teacher }}</p>
-      <button @click="innerRemove(course.id)">remove</button>
-      <button @click="outerAdd">Add to Parent</button>
+      <button v-if="!course.added" @click="addToParent(course.id)">
+        Add to Parent
+      </button>
+      <button v-else @click="removeCourse(course.id)">Remove</button>
     </div>
   </div>
 </template>
@@ -23,11 +25,11 @@ export default {
     },
   },
   methods: {
-    innerRemove(courseId) {
-      this.$emit("remove-course", courseId);
+    addToParent(courseId) {
+      this.$emit("count-to-parent", courseId);
     },
-    outerAdd() {
-      this.$emit("count-to-parent");
+    removeCourse(courseId) {
+      this.$emit("remove-course", courseId);
     },
   },
 };
