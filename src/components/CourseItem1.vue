@@ -35,6 +35,6 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 /* Styles if any */
 </style>
